@@ -8,6 +8,7 @@ public class Const {
 
 	//　メッセージ
 	final static String MSG_APP_START = "\"行き先を決める\"コマンド実行で行き先とルートを決めます。";
+	final static String MSG_ERR_ELEAGAL_COMMAND = "起動コマンドが違います。再度アプリケーションを実行してください。";
 
 
 	//　駅名
