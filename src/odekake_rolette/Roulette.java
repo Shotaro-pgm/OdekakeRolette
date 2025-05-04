@@ -17,7 +17,7 @@ public class Roulette {
 		String lineTarget = null;
 		String lineStationCnt = "1";
 		ArrayList<String> targetAndStationCountList;
-		int RidingStationCnt;
+		int ridingStationCnt;
 		String todo = null;
 
 		System.out.println(Const.MSG_APP_START);
@@ -37,13 +37,13 @@ public class Roulette {
 		lineStationCnt = targetAndStationCountList.get(1);
 
 		//　乗車する駅数を決める
-		RidingStationCnt = DecideRidingStationCount(lineStationCnt);
+		ridingStationCnt = DecideRidingStationCount(lineStationCnt);
 
 		//　やることを決める
 		todo = DecideTodo();
 
 		//　結果を出力する
-		System.out.printf("%s駅から%sに乗って%s方面に%s駅分進んだところで%s", startStation, useLine, lineTarget, RidingStationCnt, todo);
+		System.out.printf("%s駅から%sに乗って%s方面に%s駅分進んだところで%s", startStation, useLine, lineTarget, ridingStationCnt, todo);
 
 	}
 
@@ -110,8 +110,8 @@ public class Roulette {
 		ArrayList<String> rstList = new ArrayList();
 		ArrayList<String> tmpLineTargetStationCnt;
 		int tmpLineDecNum = 0;
-		ArrayList<String> LineTargetStationCnt = new ArrayList();
-		ArrayList<ArrayList<String>> LineTargetStationCntList = new ArrayList();
+		ArrayList<String> lineTargetStationCnt = new ArrayList();
+		ArrayList<ArrayList<String>> lineTargetStationCntMappingList = new ArrayList();
 		int tmpTargetDecNum;
 
 		do {
@@ -119,24 +119,24 @@ public class Roulette {
 			tmpLineDecNum++;
 		} while(!tmpLineTargetStationCnt.contains(useLine));
 
-		LineTargetStationCnt.add(tmpLineTargetStationCnt.get(1));
-		LineTargetStationCnt.add(tmpLineTargetStationCnt.get(2));
-		LineTargetStationCntList.add(LineTargetStationCnt);
+		lineTargetStationCnt.add(tmpLineTargetStationCnt.get(1));
+		lineTargetStationCnt.add(tmpLineTargetStationCnt.get(2));
+		lineTargetStationCntMappingList.add(lineTargetStationCnt);
 		if(tmpLineTargetStationCnt.size() == 5) {
-			LineTargetStationCnt.add(tmpLineTargetStationCnt.get(3));
-			LineTargetStationCnt.add(tmpLineTargetStationCnt.get(4));
-			LineTargetStationCntList.add(LineTargetStationCnt);
+			lineTargetStationCnt.add(tmpLineTargetStationCnt.get(3));
+			lineTargetStationCnt.add(tmpLineTargetStationCnt.get(4));
+			lineTargetStationCntMappingList.add(lineTargetStationCnt);
 		}
 
 		tmpTargetDecNum = (int)Math.floor(Math.random() * 10);
-		if(LineTargetStationCntList.size() > 1) {
+		if(lineTargetStationCntMappingList.size() > 1) {
 			if(tmpTargetDecNum > 4) {
-				lineTarget = LineTargetStationCntList.get(1).get(0);
-				lineStationCnt = LineTargetStationCntList.get(1).get(1);
+				lineTarget = lineTargetStationCntMappingList.get(1).get(0);
+				lineStationCnt = lineTargetStationCntMappingList.get(1).get(1);
 			}
 		} else {
-			lineTarget = LineTargetStationCntList.get(0).get(0);
-			lineStationCnt = LineTargetStationCntList.get(0).get(1);
+			lineTarget = lineTargetStationCntMappingList.get(0).get(0);
+			lineStationCnt = lineTargetStationCntMappingList.get(0).get(1);
 		}
 
 		rstList.add(lineTarget);
@@ -146,15 +146,15 @@ public class Roulette {
 	}
 
 	public static int DecideRidingStationCount(String lineStationCnt) {
-		int RidingStationCnt = (int)Math.floor(Math.random() * 1000);
+		int ridingStationCnt = (int)Math.floor(Math.random() * 1000);
 		int tmpWari = 1;
 
-		while(RidingStationCnt > Integer.parseInt(lineStationCnt)) {
+		while(ridingStationCnt > Integer.parseInt(lineStationCnt)) {
 			tmpWari++;
-			RidingStationCnt = RidingStationCnt / tmpWari;
+			ridingStationCnt = ridingStationCnt / tmpWari;
 		}
 
-		return RidingStationCnt;
+		return ridingStationCnt;
 	}
 
 	public static ArrayList<String> SetTokyoStationLineList(ArrayList<String[]> lineTargetStationCntList) {
@@ -258,17 +258,13 @@ public class Roulette {
 	public static String DecideTodo() {
 		String todo = null;
 		int tmpTodoDecNum;
+		ArrayList<String> todoList = new ArrayList<String>(Arrays.asList(Const.TODO_LIST));
 
-		tmpTodoDecNum = (int)Math.floor(Math.random() * 10);
-		if(tmpTodoDecNum < 3) {
-			todo = Const.SANSAKU_AROUND_STATION;
-		} else if(tmpTodoDecNum < 5) {
-			todo = Const.EAT_LUNCH;
-		} else if(tmpTodoDecNum < 7) {
-			todo = Const.DRINK_COFFEE;
-		} else {
-			todo = Const.YARITAIA_HODAI;
-		}
+		do {
+			tmpTodoDecNum = (int)Math.floor(Math.random() * 10);
+		}while(tmpTodoDecNum > (todoList.size() - 1));
+
+		todo = todoList.get(tmpTodoDecNum);
 
 		return todo;
 	}

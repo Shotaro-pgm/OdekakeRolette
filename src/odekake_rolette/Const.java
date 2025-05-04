@@ -1,34 +1,14 @@
 package odekake_rolette;
 
 public class Const {
-	//　コマンド
+	//  コマンド
 	final static String COMMAND_ROULETTE_START = "行き先を決める";
 
-
-
-	//　メッセージ
+	//  メッセージ
 	final static String MSG_APP_START = "\"行き先を決める\"コマンド実行で行き先とルートを決めます。";
 	final static String MSG_ERR_ELEAGAL_COMMAND = "起動コマンドが違います。再度アプリケーションを実行してください。";
 
-
-	//　駅名
-	final static String ST_TOKYO = "東京";
-	final static String ST_UENO = "上野";
-	final static String ST_IKEBUKURO = "池袋";
-	final static String ST_SHINJUKU = "新宿";
-	final static String ST_SHIBUYA = "渋谷";
-	final static String ST_SHINAGAWA = "品川";
-	final static String[] START_STATION = {"東京", "上野", "池袋", "新宿", "渋谷", "品川"};
-	final static String[] LINE_TOKYO = {"東海道本線", "山手線", "京浜東北線", "横須賀線", "総武本線", "京葉線", "中央線", "中央本線", "上野東京ライン", "東北新幹線", "上越新幹線", "北陸新幹線", "東海道新幹線", "東京メトロ丸の内線"};
-	final static String[] LINE_UENO = {"山手線", "京浜東北線", "東北本線", "常磐線", "高崎線", "上野東京ライン", "東北新幹線", "上越新幹線", "北陸新幹線", "東京メトロ銀座線", "東京メトロ日比谷線"};
-	final static String[] LINE_IKEBUKURO = {"山手線", "埼京線", "湘南新宿ライン（高崎/小田原）", "湘南新宿ライン（宇都宮/逗子）", "東京メトロ丸の内線", "東京メトロ有楽町線", "東京メトロ副都心線", "西武池袋線", "東武東上線"};
-	final static String[] LINE_SHINJUKU = {"山手線", "総武線", "埼京線", "中央線", "中央本線", "湘南新宿ライン（高崎/小田原）", "湘南新宿ライン（宇都宮/逗子）", "都営新宿線", "都営大江戸線", "京王線", "京王新線", "小田急小田原線"};
-	final static String[] LINE_SHIBUYA = {"山手線", "埼京線", "湘南新宿ライン（高崎/小田原）", "湘南新宿ライン（宇都宮/逗子）", "東京メトロ銀座線", "東京メトロ半蔵門線", "東京メトロ副都心線", "京王井の頭線", "東急東横線", "東急田園都市線"};
-	final static String[] LINE_SHINAGAWA = {"東海道本線", "山手線", "京浜東北線", "横須賀線", "東海道新幹線", "京急本線"};
-
-
-
-	//　路線名
+	//  路線名
 	final static String YOKOSUKA = "横須賀線";
 	final static String KEIO_INOKASHIRA = "京王井の頭線";
 	final static String KEIO_SHINSEN = "京王新線";
@@ -67,10 +47,23 @@ public class Const {
 	final static String TOHOKU_HONSEN = "東北本線";
 	final static String HOKURIKU_SHINKANSEN = "北陸新幹線";
 
+	//  駅名
+	final static String ST_TOKYO = "東京";
+	final static String ST_UENO = "上野";
+	final static String ST_IKEBUKURO = "池袋";
+	final static String ST_SHINJUKU = "新宿";
+	final static String ST_SHIBUYA = "渋谷";
+	final static String ST_SHINAGAWA = "品川";
+	final static String[] START_STATION = {ST_TOKYO, ST_UENO, ST_IKEBUKURO, ST_SHINJUKU, ST_SHIBUYA, ST_SHINAGAWA};
+	final static String[] LINE_TOKYO = {TOKAIDO_HONSEN, YAMANOTE, KEIHIN_TOHOKU, YOKOSUKA, SOBU_HONSEN, KEIYO, CHUO, CHUO_HONSEN, UENO_TOKYO, TOHOKU_SHINKANSEN, JOETSU_SHINKANSEN, HOKURIKU_SHINKANSEN, TOKAIDO_SHINKANSEN, TOKYO_METRO_MARUNOUCHI};
+	final static String[] LINE_UENO = {YAMANOTE, KEIHIN_TOHOKU, TOHOKU_HONSEN, JOBAN, TAKASAKI, UENO_TOKYO, TOHOKU_SHINKANSEN, JOETSU_SHINKANSEN, HOKURIKU_SHINKANSEN, TOKYO_METRO_GINZA, TOKYO_METRO_HIBIYA};
+	final static String[] LINE_IKEBUKURO = {YAMANOTE, SAIKYO, SHONAN_SHINJUKU_TAKASAKI_ODAWARA, SHONAN_SHINJUKU_UTSUNOMIYA_ZUSHI, TOKYO_METRO_MARUNOUCHI, TOKYO_METRO_YURAKUCHO, TOKYO_METRO_FUKUTOSHIN, SEIBU_IKEBUKURO, TOBU_TOJO};
+	final static String[] LINE_SHINJUKU = {YAMANOTE, SOBU, SAIKYO, CHUO, CHUO_HONSEN, SHONAN_SHINJUKU_TAKASAKI_ODAWARA, SHONAN_SHINJUKU_UTSUNOMIYA_ZUSHI, TOEI_SHINJUKU, TOEI_OHEDO, KEIO, KEIO_SHINSEN, ODAKYU_ODAWARA};
+	final static String[] LINE_SHIBUYA = {YAMANOTE, SAIKYO, SHONAN_SHINJUKU_TAKASAKI_ODAWARA, SHONAN_SHINJUKU_UTSUNOMIYA_ZUSHI, TOKYO_METRO_GINZA, TOKYO_METRO_HANZOMON, TOKYO_METRO_FUKUTOSHIN, KEIO_INOKASHIRA, TOKYU_TOYOKO, TOKYU_DENENTOSHI};
+	final static String[] LINE_SHINAGAWA = {TOKAIDO_HONSEN, YAMANOTE, KEIHIN_TOHOKU, YOKOSUKA, TOKAIDO_SHINKANSEN, KEKYU_HONSEN};
 
-
-	//　各路線の上り下りの駅数(路線名, 方面1, 方面1への駅数(, 方面2, 方面2への駅数）)
-	//　東京駅
+	//  各路線の上り下りの駅数(路線名, 方面1, 方面1への駅数(, 方面2, 方面2への駅数）)
+	//  東京駅
 	final static String[] ST_TOKYO_TOKAIDO_HONSENN = {TOKAIDO_HONSEN, "熱海", "20"};
 	final static String[] ST_TOKYO_YAMANOTE = {YAMANOTE, "大崎", "23", "品川", "6"};
 	final static String[] ST_TOKYO_KEIHIN_TOHOKU = {KEIHIN_TOHOKU, "大宮", "21", "横浜", "14"};
@@ -86,7 +79,7 @@ public class Const {
 	final static String[] ST_TOKYO_TOKAIDO_SHINKANSEN = {TOKAIDO_SHINKANSEN, "新大阪", "16"};
 	final static String[] ST_TOKYO_TOKYO_METRO_MARUNOUCHI = {TOKYO_METRO_MARUNOUCHI, "大宮", "21", "横浜", "14"};
 
-	//　上野
+	//  上野
 	final static String[] ST_UENO_YAMANOTE = {YAMANOTE, "大崎", "19", "品川", "10"};
 	final static String[] ST_UENO_KEIHIN_TOHOKU = {KEIHIN_TOHOKU, "大宮", "17", "横浜", "18"};
 	final static String[] ST_UENO_TOHOKU_HONSEN = {TOHOKU_HONSEN, "盛岡", "114"};
@@ -99,7 +92,7 @@ public class Const {
 	final static String[] ST_UENO_TOKYO_METRO_GINZA = {TOKYO_METRO_GINZA, "浅草", "3", "渋谷", "15"};
 	final static String[] ST_UENO_TOKYO_METRO_HIBIYA = {TOKYO_METRO_HIBIYA, "北千住", "4", "中目黒", "17"};
 
-	//　池袋
+	//  池袋
 	final static String[] ST_IKEBUKURO_YAMANOTE = {YAMANOTE, "大崎", "11", "品川", "18"};
 	final static String[] ST_IKEBUKURO_SAIKYO = {SAIKYO, "大崎", "4", "大宮", "14"};
 	final static String[] ST_IKEBUKURO_SHONAN_SHINJUKU_TAKASAKI_ODAWARA = {SHONAN_SHINJUKU_TAKASAKI_ODAWARA, "高崎", "21", "小田原", "21"};
@@ -110,7 +103,7 @@ public class Const {
 	final static String[] ST_IKEBUKURO_SEIBU_IKEBUKURO = {SEIBU_IKEBUKURO, "吾野", "30"};
 	final static String[] ST_IKEBUKURO_TOBU_TOJO = {TOBU_TOJO, "寄居", "38"};
 
-	//　新宿
+	//  新宿
 	final static String[] ST_SHINJUKU_YAMANOTE = {YAMANOTE, "大崎", "7", "品川", "22"};
 	final static String[] ST_SHINJUKU_SOBU = {SOBU, "千葉", "29", "三鷹", "9"};
 	final static String[] ST_SHINJUKU_SAIKYO = {SAIKYO, "大崎", "3", "大宮", "15"};
@@ -124,7 +117,7 @@ public class Const {
 	final static String[] ST_SHINJUKU_KEIO_SHINSEN = {KEIO_SHINSEN, "笹塚", "3"};
 	final static String[] ST_SHINJUKU_ODAKYU_ODAWARA = {ODAKYU_ODAWARA, "小田原", "46"};
 
-	//　渋谷
+	//  渋谷
 	final static String[] ST_SHIBUYA_YAMANOTE = {YAMANOTE, "大崎", "4", "品川", "25"};
 	final static String[] ST_SHIBUYA_SAIKYO = {SAIKYO, "大崎", "2", "大宮", "16"};
 	final static String[] ST_SHIBUYA_SHONAN_SHINJUKU_TAKASAKI_ODAWARA = {SHONAN_SHINJUKU_TAKASAKI_ODAWARA, "高崎", "22", "小田原", "19"};
@@ -136,7 +129,7 @@ public class Const {
 	final static String[] ST_SHIBUYA_TOKYU_TOYOKO = {TOKYU_TOYOKO, "横浜", "20"};
 	final static String[] ST_SHIBUYA_TOKYU_DENENTOSHI = {TOKYU_DENENTOSHI, "中央林間", "26"};
 
-	//　品川
+	//  品川
 	final static String[] ST_SHINAGAWA_TOKAIDO_HONSEN = {TOKAIDO_HONSEN, "東京", "2", "熱海", "18"};
 	final static String[] ST_SHINAGAWA_YAMANOTE = {YAMANOTE, "大崎", "29"};
 	final static String[] ST_SHINAGAWA_KEIHIN_TOHOKU = {KEIHIN_TOHOKU, "大宮", "27", "横浜", "8"};
@@ -144,12 +137,10 @@ public class Const {
 	final static String[] ST_SHINAGAWA_TOKAIDO_SHINKANSEN = {TOKAIDO_SHINKANSEN, "新大阪", "15"};
 	final static String[] ST_SHINAGAWA_KEIKYU_HONSEN = {KEKYU_HONSEN, "泉岳寺", "1", "浦賀", "48"};
 
+	//  路線ごとの駅リスト
+	final static String[] LN_ST_LIST_YOKOSUKA = {};
 
-
-	//　やること
-	final static String YARITAIA_HODAI = "やりたい放題してください！";
-	final static String SANSAKU_AROUND_STATION = "駅周辺を散策してください！";
-	final static String EAT_LUNCH = "お昼ごはんを食べてください！";
-	final static String DRINK_COFFEE = "カフェタイムにしましょう！";
+	//  やること
+	final static String[] TODO_LIST = {"やりたい放題してください！", "駅周辺を散策してください！", "お昼ごはんを食べてください！", "カフェタイムにしましょう！"};
 
 }
